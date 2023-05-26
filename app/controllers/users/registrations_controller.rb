@@ -3,6 +3,7 @@
 # app/controllers/users/registrations_controller.rb
 class Users::RegistrationsController < Devise::RegistrationsController
   before_action :authorize_request, except: :create
+  protect_from_forgery with: :null_session
 
   def create
     user = User.new(sign_up_params)

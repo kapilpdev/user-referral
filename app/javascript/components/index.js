@@ -3,8 +3,12 @@ import { createRoot } from "react-dom/client";
 import App from "./App";
 
 document.addEventListener("turbo:load", () => {
-  const root = createRoot(
-    document.body.appendChild(document.createElement("div"))
+  const rootElement = document.getElementById("root");
+
+  const root = createRoot(rootElement);
+  root.render(
+    <React.StrictMode>
+      <App />
+    </React.StrictMode>
   );
-  root.render(<App />);
 });
