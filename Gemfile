@@ -39,6 +39,9 @@ gem "redis", "~> 4.0"
 # Use Devise for authentication
 gem 'devise'
 
+# Use JWT gem for token based authentication
+gem 'jwt'
+
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 
