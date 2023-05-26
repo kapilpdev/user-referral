@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'home/index'
   devise_for :users, defaults: { format: :json },
                      controllers: { sessions: 'users/sessions',
                                     registrations: 'users/registrations',
@@ -6,4 +7,5 @@ Rails.application.routes.draw do
                                   }
 
   get '/health_check', to: proc { [200, {}, ['success']] }
+  root 'home#index'
 end
