@@ -4,6 +4,7 @@ import Home from "../components/Home";
 import Registration from "../components/Registration";
 import Login from "../components/Login";
 import DashBoard from "../components/Dashboard";
+import NewReferral from "../components/NewReferral";
 import PrivateRoute from "./privateRoute";
 
 export default (
@@ -15,6 +16,10 @@ export default (
       <Route
         path="/dashboard"
         element={<PrivateRoute component={DashBoard} />}
+      />
+      <Route
+        path="/new-referral"
+        element={<PrivateRoute component={NewReferral} />}
       />
     </Routes>
   </Router>

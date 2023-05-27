@@ -2,6 +2,7 @@
 
 # app/controllers/referral_invitations_controller.rb
 class ReferralInvitationsController < ApplicationController
+  protect_from_forgery with: :null_session
   before_action :authorize_request
 
   def index
@@ -10,13 +11,13 @@ class ReferralInvitationsController < ApplicationController
   end
 
   def create
-    user_referral = ReferralInvitation.new(referral_params)
-    user_referral.referred_by
+    user_referral = current_user.referral_invitations.create(referral_params)
+    render json: user_referral.as_json, status: :ok if user_referral
   end
 
   private
 
   def referral_params
-    params.require(:referral_invitations).permit(:email)
+    params.require(:referral_invitation).permit(:email)
   end
 end

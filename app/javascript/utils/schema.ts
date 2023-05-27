@@ -20,3 +20,9 @@ export const signUpSchema = Yup.object().shape({
     .required("Password Confirmation is a required !")
     .min(6, "Password must be at least 8 characters")
 });
+
+export const referralSchema = Yup.object().shape({
+  email: Yup.string()
+    .required("Email is a required field")
+    .email("Invalid email format"),
+});

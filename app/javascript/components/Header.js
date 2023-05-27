@@ -21,6 +21,12 @@ function Header() {
           },
         },
         {
+          title: "New Referral Invitation",
+          handleClick: () => {
+            navigate("/new-referral");
+          },
+        },
+        {
           title: "Logout",
           handleClick: () => {
             navigate("/login");
