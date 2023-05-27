@@ -95,12 +95,6 @@ URL: http://localhost:3000/referrals_invitations
 Method: GET
 ```
 
-#### Current_user referred by
-```
-URL: http://localhost:3000/referred_by
-Method: GET
-```
-
 #### Send invite email
 ```
 URL: http://localhost:3000/referrals_invitations
@@ -109,7 +103,7 @@ Method: POST
 Request example:
 ```json
 {
-  "referrals_invitation": {
+  "referral_invitation": {
     "email": "name@domain.com"
   }
 }

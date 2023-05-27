@@ -1,0 +1,8 @@
+<div>
+  <p>Hello, <%= @referral.email %></p>
+  <p>
+    <%= @referrer %> has Invited you to join User Referral Application.
+    Please join through this <a href="http://localhost:3000/registration?referral_token=<%= @referrer.referral_token %>">Link</a>.
+  </p>
+
+</div>

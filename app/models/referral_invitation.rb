@@ -7,5 +7,14 @@ class ReferralInvitation < ApplicationRecord
     accepted: 'accepted'
   }, _default: 'pending'
 
+  belongs_to :referrer, class_name: 'User', foreign_key: 'referred_by'
+
   validates :email, presence: true, uniqueness: true
+  after_create :send_invitation
+
+  private
+
+  def send_invitation
+    ReferralInvitationMailer.new(id).invitation_mail.deliver_now
+  end
 end
