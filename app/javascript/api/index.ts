@@ -1,5 +1,6 @@
 import axios, { AxiosInstance } from 'axios';
 
+debugger
 const apiInstance: AxiosInstance = axios.create({
   baseURL: "http://localhost:3000",
   headers: {
