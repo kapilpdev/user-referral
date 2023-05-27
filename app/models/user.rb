@@ -7,4 +7,12 @@ class User < ApplicationRecord
 
   has_many :referral_invitations, class_name: 'ReferralInvitation', foreign_key: 'referred_by'
   belongs_to :referrer, class_name: 'User', foreign_key: 'referrer_id', optional: true
+
+  before_create :generate_referral_token
+
+  private
+
+  def create_referral_token
+    self.referral_token = SecureRandom.hex(5)
+  end
 end
