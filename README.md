@@ -48,6 +48,9 @@ bin/dev # to start the server
 
 ```
 
+### NOTE
+Right now this application only works in development mode, invitations mail can be see from the terminal, if you need to change the URL it will be part of a manual process for both the frontend and backend.
+
 ## UI Example
 ![User Referrals](/app/assets/images/collage.jpg?raw=true "User Referrals")
 
