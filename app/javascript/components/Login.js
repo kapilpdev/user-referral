@@ -51,10 +51,8 @@ export default function Login() {
       axiosInstance
         .post("/users/sign_in", data)
         .then((response) => {
-          if(response.data.token !== undefined) {
-            navigate("/dashboard");
-            localStorage.setItem('token', response.data.token);
-          }
+          navigate("/dashboard");
+          localStorage.setItem('token', response.data.token);
         })
         .catch((error) => {
           console.error(error);
