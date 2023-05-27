@@ -14,11 +14,12 @@ import { useFormik } from "formik";
 import { signUpSchema } from "../utils";
 import Error from "./error";
 import axiosInstance from "../api";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation, useSearchParams } from 'react-router-dom';
 import Header from "./Header";
 
 function Registration() {
   const navigate = useNavigate();
+  const location = useLocation()
   const formik = useFormik({
     initialValues:{
       email:"",
@@ -27,9 +28,10 @@ function Registration() {
     },
     validationSchema:signUpSchema,
     onSubmit: (values) => {
-      // const token = window.location.search
+      const params = new URLSearchParams(location.search)
       const data = {
-        "user": values
+        "user": values,
+        "referral_token": params.get('referral_token')
       }
       axiosInstance.post('/users', data)
       .then((response) => {

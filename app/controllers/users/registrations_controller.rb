@@ -22,7 +22,7 @@ module Users
     private
 
     def set_referrer
-      @referrer = User.find_by(referral_token: params[:referral_token]) if params[:referral_token]
+      @referrer = User.find_by(referral_token: params[:referral_token]) if params[:referral_token].present?
     end
 
     def sign_up_params
