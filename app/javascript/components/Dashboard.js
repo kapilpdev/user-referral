@@ -27,7 +27,7 @@ function DashBoard() {
     // call API here to set row data
 
     axiosInstance
-      .get("/list")
+      .get("/referral_invitations")
       .then((response) => {
         setRowData(rows);
       })
@@ -45,7 +45,7 @@ function DashBoard() {
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
           <TableHead>
             <TableRow>
-              <TableCell component='th'>EMail</TableCell>
+              <TableCell component='th'>Email</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>

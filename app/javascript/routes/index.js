@@ -5,8 +5,6 @@ import Registration from "../components/Registration";
 import Login from "../components/Login";
 import DashBoard from "../components/Dashboard";
 import PrivateRoute from "./privateRoute";
-// import PageLayout from "../components/pageLayout";
-
 
 export default (
   <Router>
