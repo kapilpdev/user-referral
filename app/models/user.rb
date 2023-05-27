@@ -12,7 +12,7 @@ class User < ApplicationRecord
 
   private
 
-  def create_referral_token
+  def generate_referral_token
     self.referral_token = SecureRandom.hex(5)
   end
 end
