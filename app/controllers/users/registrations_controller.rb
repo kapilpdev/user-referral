@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-# app/controllers/users/registrations_controller.rb
 module Users
+  # app/controllers/users/registrations_controller.rb
   class RegistrationsController < Devise::RegistrationsController
     before_action :authorize_request, except: :create
     protect_from_forgery with: :null_session

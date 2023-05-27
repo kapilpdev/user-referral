@@ -15,6 +15,6 @@ class ReferralInvitation < ApplicationRecord
   private
 
   def send_invitation
-    ReferralInvitationMailer.new(id).invitation_mail.deliver_now
+    ReferralInvitationMailer.invitation_mail(id).deliver_now
   end
 end

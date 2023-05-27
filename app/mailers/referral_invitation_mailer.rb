@@ -5,6 +5,6 @@ class ReferralInvitationMailer < ApplicationMailer
   def invitation_mail(referral_id)
     @referral = ReferralInvitation.find(referral_id)
     @referrer = @referral.referrer
-    mail(to: email, subject: "#{@referrer.email} invited you to join User Referrals!")
+    mail(to: @referral.email, subject: "#{@referrer.email} invited you to join User Referrals!")
   end
 end

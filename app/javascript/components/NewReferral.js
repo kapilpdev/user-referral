@@ -20,8 +20,7 @@ function NewReferral() {
   const navigate = useNavigate();
   const formik = useFormik({
     initialValues: {
-      email: "",
-      password: "",
+      email: ""
     },
     validationSchema: referralSchema,
     onSubmit: (values) => {

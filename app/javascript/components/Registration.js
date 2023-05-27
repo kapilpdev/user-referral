@@ -27,6 +27,7 @@ function Registration() {
     },
     validationSchema:signUpSchema,
     onSubmit: (values) => {
+      // const token = window.location.search
       const data = {
         "user": values
       }
