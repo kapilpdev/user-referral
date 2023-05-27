@@ -51,10 +51,13 @@ bin/dev # to start the server
 ## API REQUEST EXAMPLES
 
 #### Sign Up
+```
 URL without referral: http://localhost:3000/users
 URL with referral: http://localhost:3000/users?referral_token={unique invitation token}
 Method: POST
-Request example:
+```
+Request example:-
+```
 ```json
 {
   "user": {
@@ -66,10 +69,12 @@ Request example:
 ```
 
 #### Sign In
+```
 URL: http://domain.com/api/auth/sign_in
 Method: POST
-```json
+```
 Request example:
+```json
 {
   "user": {
     {
@@ -97,8 +102,10 @@ Method: GET
 ```
 
 #### Send invite email
+```
 URL: http://localhost:3000/referrals_invitations
 Method: POST
+```
 Request example:
 ```json
 {
