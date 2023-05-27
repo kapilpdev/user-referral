@@ -48,6 +48,9 @@ bin/dev # to start the server
 
 ```
 
+## UI Example
+![User Referrals](/app/assets/images/collage.jpg?raw=true "User Referrals")
+
 ## API REQUEST EXAMPLES
 
 #### Sign Up
