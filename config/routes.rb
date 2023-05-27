@@ -1,9 +1,10 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
   devise_for :users, defaults: { format: :json },
                      controllers: { sessions: 'users/sessions',
                                     registrations: 'users/registrations',
-                                    passwords: 'users/passwords'
-                                  }
+                                    passwords: 'users/passwords' }
 
   resources :referral_invitations
 

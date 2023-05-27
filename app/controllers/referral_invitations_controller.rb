@@ -1,8 +1,10 @@
+# frozen_string_literal: true
+
 class ReferralInvitations < ApplicationController
   before_action :authorize_request
 
   def index
-    user_referrals = current_user.referral_invitations
+    current_user.referral_invitations
     render json: referral_invitations.as_json, status: :ok
   end
 
