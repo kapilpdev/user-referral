@@ -63,7 +63,6 @@ URL with referral: http://localhost:3000/users?referral_token={unique invitation
 Method: POST
 ```
 Request example:-
-```
 ```json
 {
   "user": {
