@@ -7,8 +7,11 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import axiosInstance from "../api";
 import Header from './Header';
+import axios from 'axios';
+import Container from "@mui/material/Container";
+import Grid from "@mui/material/Grid";
+
 
 function formattedDate(date) {
   const datetimeString = date;
@@ -23,22 +26,29 @@ function formattedDate(date) {
 function DashBoard() {
   const [rowData, setRowData] = useState([]);
 
+  const token = localStorage.getItem('token')
+  const headers = {
+    "headers": {
+      'Content-Type': 'application/json',
+      'Authorization':`Bearer ${token}`,
+    }
+  }
   useEffect(() => {
     // call API here to set row data
-    axiosInstance
-      .get("/referral_invitations")
-      .then((response) => {
-        setRowData(response.data);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  }, []);
+    axios.get('http://localhost:3000/referral_invitations.json', headers).then((response) => {
+      setRowData(response.data)
+    })
+  }, [token]);
 
   return (
     <>
       <Header />
-      <TableContainer component={Paper}>
+      {rowData.length == 0 ?
+      <Grid container justifyContent="center" sx={{mt: '100px'}}>
+        <h1>You have not sent any invitation yet!</h1>
+      </Grid>  :
+
+      ( <> <TableContainer component={Paper}>
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
           <TableHead>
             <TableRow>
@@ -48,9 +58,9 @@ function DashBoard() {
             </TableRow>
           </TableHead>
           <TableBody>
-            {rowData?.map((row) => (
+            {rowData && rowData.map((row) => (
               <TableRow
-                key={row.email}
+                key={row.id}
                 sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
               >
                 <TableCell component="th" scope="row">
@@ -67,6 +77,7 @@ function DashBoard() {
           </TableBody>
         </Table>
       </TableContainer>
+      </>)}
     </>
   );
 }

@@ -33,7 +33,7 @@ function Registration() {
         "user": values,
         "referral_token": params.get('referral_token')
       }
-      axiosInstance.post('/users', data)
+      axiosInstance.post('/users.json', data)
       .then((response) => {
         navigate('/dashboard');
         localStorage.setItem('token', response.data.token);

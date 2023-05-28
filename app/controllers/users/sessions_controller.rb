@@ -13,7 +13,7 @@ module Users
           token: token, id: user.id, email: user.email
         }, status: :ok
       else
-        render json: { error: 'unauthorized' }, status: :unauthorized
+        render json: { error: 'Invalid Credentials' }, status: :unauthorized
       end
     end
   end

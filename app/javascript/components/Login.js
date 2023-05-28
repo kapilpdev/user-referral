@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -16,11 +16,13 @@ import Error from "./error";
 import axiosInstance from "../api";
 import { useNavigate } from "react-router-dom";
 import Header from "./Header";
+import Alert from '@mui/material/Alert';
 
 const defaultTheme = createTheme();
 
 export default function Login() {
   const navigate = useNavigate();
+  const [userError, setUserError] = useState('');
   const formik = useFormik({
     initialValues: {
       email: "",
@@ -32,13 +34,13 @@ export default function Login() {
         "user": values
       }
       axiosInstance
-        .post("/users/sign_in", data)
+        .post("/users/sign_in.json", data)
         .then((response) => {
           navigate("/dashboard");
           localStorage.setItem('token', response.data.token);
         })
         .catch((error) => {
-          console.error(error);
+          setUserError(error.response.data.error);
         });
     },
   });
@@ -49,6 +51,11 @@ export default function Login() {
   return (
     <>
       <Header />
+      {userError && (<>
+        <Alert severity="error" color="error">
+           {userError}
+        </Alert>
+      </>)}
       <ThemeProvider theme={defaultTheme}>
         <Container component="main" maxWidth="xs">
           <CssBaseline />
